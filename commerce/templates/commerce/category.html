@@ -1,0 +1,20 @@
+{% for product in products %}
+                    <div class="col-md-2 col-sm-4">
+                        <!-- BEGIN item -->
+
+                        <div class="item item-thumbnail">
+                            <a href="{% url 'product_detail' product.id %}" class="item-image">
+                                <img src="{{product.image.url}}" alt="" />
+                                <div class="discount">{{product.off}}% OFF</div>
+                            </a>
+                            <div class="item-info">
+                                <h4 class="item-title">
+                                    <a href="{% url 'product_detail' product.id %}">{{product.name}}<br />{{product.spacification}}</a>
+                                </h4>
+                                <p class="item-desc">{{product.discription}}.</p>
+                                <div class="item-price">${{product.price}}</div>
+                                <div class="item-discount-price">${{product.discount}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
